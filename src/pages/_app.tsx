@@ -22,6 +22,7 @@ import "@ionic/core/css/text-alignment.css"
 import "@ionic/core/css/text-transformation.css"
 import "@ionic/core/css/flex-utils.css"
 import "@ionic/core/css/display.css"
+import Header from "@/components/layout/Header"
 
 type ToReact<T> = {
   [P in keyof T]?: T[P] &
@@ -47,10 +48,14 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Page title</title>
+        <title>Ionic React</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+        <meta
+          name="description"
+          content="Next.js setup with Ionic, Capacitor & Mantine UI"
         />
       </Head>
 
@@ -59,9 +64,25 @@ export default function App({ Component, pageProps }: AppProps) {
         withNormalizeCSS
         theme={{
           /** Put your mantine theme override here */
-          colorScheme: "light",
+          colorScheme: "dark",
         }}
       >
+        <Header
+          links={[
+            {
+              link: "/home",
+              label: "Home",
+            },
+            {
+              link: "/about",
+              label: "About",
+            },
+            {
+              link: "/contact",
+              label: "Contact",
+            },
+          ]}
+        />
         <Component {...pageProps} />
       </MantineProvider>
     </>
